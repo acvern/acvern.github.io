@@ -81,7 +81,7 @@
 
     </style>
     
-    <title> JDesktopPane and JInternalFrame </title>
+    <title> Alvern's Homepage </title>
     
     <div class = "footer">
         <p> By Alvern Chen, 2016. </p>
@@ -91,6 +91,7 @@
         <img src = "http://i.imgur.com/d36MAwG.png"></img>
         <h3> Contents </h3>
         <ol>
+            <li> <a href = "#Secret_Santa"> Secret Santa </a> </li>
             <li> <a href = "#JDesktopPane"> JDesktopPane </a> </li>
             <li> <a href = "#JInternalFrame"> JInternalFrame </a> </li>
             <li> <a href = "#Test_Code"> Test Code </a> </li>
@@ -102,18 +103,21 @@
 
     <div class = "container">
 
-        <div id = "top"><h1> JDesktopPane and JInternalFrame </h1> </div>
+        <div id = "top"><h1> Alvern's Homepage </h1> </div>
         
         <hr></hr>
         <h5> From Alvernpedia, the free encyclopedia</h5>
-        <p><em> For the film starring Jay Z, see <a href = "#top">Jay's Desktop Pane and Internal Frame (2016 movie)</a></em>.
+        
         <p>
-        Over the course of this lesson, you will learn:
+        I honestly don't know how to link to other pages so I guess this is going on the homepage for now. Here's a list of things:
         <ul>
             <li> How to implement a <strong>JDesktopPane</strong>. </li>
             <li> How to use it to manage <strong>JInternalFrame</strong> objects. </li>
         </ul>
         </p>
+        
+        <div id = "Secret_Santa"> <h2> Secret Santa </h2> </div>
+        <p> TODO: Button here to generate a name after you type your name in. </p>
         
         <div id = "JDesktopPane"> <h2> JDesktopPane </h2> </div>
         <p> According to the Java API, <strong>JDesktopPane</strong> is "used to create a multiple-document interface or a virtual desktop". It's like if you had multiple windows open on your computer, except they're all contained in one window. This makes it more organized if the windows are all related, like if you had multiple drawing windows but only one universal brush tool and colour mixer. </p>
@@ -244,37 +248,14 @@ public class DesktopDemo extends JFrame
         </ul>
         
         <div id = "FAQs"> <h2> FAQs </h2> </div>
-        <h3> Q: If this is a desktop, can it have a wallpaper? </h3>
-        <p> A: Yes! If we create a subclass of JDesktopPane, we can override its <strong>paintComponent()</strong> method to display an image. I'll use the logo of <em>Pokemon XD: Gale of Darkness</em> as an example: </p>
-        <pre>
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-
-public class NewDesktop extends JDesktopPane 
-{
-    ImageIcon icon = new ImageIcon("xd.jpg"); // Load an image
-    Image image = icon.getImage(); // Pass the image into an Image object
-    
-    // Scale the image down to fit the window
-    Image newImage = image.getScaledInstance(800, 450, Image.SCALE_DEFAULT);
-    
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(newImage, 0, 0, null);
-        repaint(); // Paints the image without having to resize the window
-    }
-        </pre>
-        <p> This is what it looks like after we replace <strong>JDesktopPane</strong> in our previous example with <strong>NewDesktop</strong>: </p>
-        <img style = "width: 400px; height: 225px;" src = "http://i.imgur.com/M7zSpoj.png"></img>
-        <p> Radical, dude! Note that the image moves around depending on the position of the toolbar. </p>
         
         <h3> Q: Can I nest JDesktopPanes? What does it look like? </h3>
         <p> A: </p>
         <img style = "width: 402px; height: 227px;" src = "http://i.imgur.com/rVBGGq7.png"></img>
         <p> Bonus: See what a frame looks like when it's minimized! </p>
+        
+        <h3> Q: Shouldn't you be doing homework? </h3>
+        <p> A: Yeah. </p>
        
         <div id = "Homework"> <h2> Homework </h2> </div>
-        <p> None. Continue working on the summative! </p>
+        <p> Study for MATH 135, MATH 137, CS 135, ECON 101 finals. </p>
