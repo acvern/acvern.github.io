@@ -64,6 +64,7 @@
             background: #ffffff;
             padding-left: 20px;
             padding-top: 15px;
+            padding-bottom: 10px;
             left: 15px;
             top: 10px;
         }
@@ -81,6 +82,8 @@
 
     </style>
     
+    <body>
+    
     <title> Alvern's Homepage </title>
     
     <div class = "footer">
@@ -92,11 +95,7 @@
         <h3> Contents </h3>
         <ol>
             <li> <a href = "#Secret_Santa"> Secret Santa </a> </li>
-            <li> <a href = "#JDesktopPane"> JDesktopPane </a> </li>
-            <li> <a href = "#JInternalFrame"> JInternalFrame </a> </li>
-            <li> <a href = "#Test_Code"> Test Code </a> </li>
-            <li> <a href = "#Considerations"> Considerations </a> </li>
-            <li> <a href = "#FAQs"> FAQs </a> </li>
+            <li> <a href = "#Goose_Clicker"> Goose Clicker </a> </li>
             <li> <a href = "#Homework"> Homework </a> </li>
         </ol>
     </div>
@@ -108,154 +107,62 @@
         <hr></hr>
         <h5> From Alvernpedia, the free encyclopedia</h5>
         
-        <p>
-        I honestly don't know how to link to other pages so I guess this is going on the homepage for now. Here's a list of things:
-        <ul>
-            <li> How to implement a <strong>JDesktopPane</strong>. </li>
-            <li> How to use it to manage <strong>JInternalFrame</strong> objects. </li>
-        </ul>
-        </p>
+        <p> Hello World! </p>
         
         <div id = "Secret_Santa"> <h2> Secret Santa </h2> </div>
-        <p> TODO: Button here to generate a name after you type your name in. </p>
+        <p>Type in your name and receive a predetermined name.<br>
+        It shouldn't be your own name. It should be a person. Please don't go looking for a gift for <em>undefined</em>. If any of these apply, tell me. </p>
+        <p>If something went wrong and nobody told me then don't expect me to lose sleep over it xd</p>
+        </p>
+        <form>
+            Your name (like, YOUR name):<br>
+            <input type="text" name="name"><br>
+        </form> 
+        <button onclick="displayName()">Enter</button>
         
-        <div id = "JDesktopPane"> <h2> JDesktopPane </h2> </div>
-        <p> According to the Java API, <strong>JDesktopPane</strong> is "used to create a multiple-document interface or a virtual desktop". It's like if you had multiple windows open on your computer, except they're all contained in one window. This makes it more organized if the windows are all related, like if you had multiple drawing windows but only one universal brush tool and colour mixer. </p>
-        <p> Let's try creating an empty <strong>JDesktopPane</strong> and containing it in a <strong>JFrame</strong>: </p>
-        <pre>
-import java.awt.BorderLayout;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-
-public class DesktopDemo extends JFrame 
-{
-    private JDesktopPane desktop;
-    
-    public DesktopDemo()
-    {
-        super( "Verndows 10" );
-        setLayout( new BorderLayout(10, 10) ); // Set frame layout
+        <p id = "disgusting"> You are sending a gift to Their name here </p>
         
-        // Initialize panels and widgets
-        desktop = new JDesktopPane();
+        <iframe id="namesFile" src="names.txt" onload="loadNames();" style="display: none;"></iframe>
+        <iframe id="file" src="final.txt" onload="LoadFile();" style="display: none;"></iframe>
         
-        // Add panels to main frame
-        add( desktop, BorderLayout.CENTER );
-    }
-    
-} // end class DesktopDemo
-        </pre>
-        <p> And the test class: </p>
-        <pre>
-
-import javax.swing.JFrame;
-
-public class DesktopTest
-{
-    public static void main( String args[] )
-    {
-        DesktopDemo desktop = new DesktopDemo();  
-        desktop.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        desktop.setSize( 500, 420 );
-        desktop.setVisible( true );
-    }
-}
-
-        </pre>
-        <p> If you run this code, you'll notice it's blank. <em>So it does nothing?</em> Of course not! Just like a pencil, the <strong>JDesktopPane</strong> is pointless without something inside. And that something is...</p>
+    <script>
+            
+        var listOfNames = [];
+        var finalNames = [];
+            
+        function loadNames() {
+            var oFrame = document.getElementById("namesFile");
+            var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+            while (strRawContents.indexOf("\r") >= 0)
+            strRawContents = strRawContents.replace("\r", "");
+            listOfNames = strRawContents.split("\n");
+            }
+            
+        function loadFinal() {
+            var oFrame = document.getElementById("finalFile");
+            var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+            while (strRawContents.indexOf("\r") >= 0)
+            strRawContents = strRawContents.replace("\r", "");
+            finalNames = strRawContents.split("\n");
+        }
         
-        <div id = "JInternalFrame"> <h2> JInternalFrame </h2> </div>
-        <p> The <strong>JInternalFrame</strong> is functionally identical to a <strong>JFrame</strong> - you can set the layout, add widgets, handle events, etc. - with the difference that it can only be moved around within the space of the <strong>JDesktopPane</strong>. </p>
-        <p> Let's see what a <strong>DrawFrame</strong> object would look like as a <strong>JInternalFrame</strong>, and throw in a <strong>JMenuBar</strong> and <strong>JToolbar</strong> for fun: </p>
-        <img style = "width: 404px; height: 230px;" src = "http://i.imgur.com/DjcL2K7.png"></img>
-        <p> Wow! Might as well uninstall Windows, because this new desktop has it all! How did we do all of this?</p>
+            function displayName(name) {
+                if name in originalList {
+                    document.getElementById("disgusting").innerHTML = "You are sending a gift to " + finalNames[listOfNames.indexOf(name)];
+                }
+                else {
+                    document.getElementById("disgusting").innerHTML = "Invalid entry, or I screwed up.";
+                }
+            }
+    </script>
         
-        <div id = "Test_Code"> <h2> Test Code </h2> </div>
-        
-        <pre>
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
-
-public class DesktopDemo extends JFrame 
-{
-    private JPanel topJPanel;
-    private JDesktopPane desktop;
-    private JPanel bottomJPanel;
-    private JInternalFrame drawTest;
-    private JMenuBar mainBar;
-    private JMenu fileMenu, editMenu, viewMenu; // Menus
-    private JToolBar toolbar;
-    private JButton report;
-    
-    public DesktopDemo()
-    {
-        super( "Verndows 10" );
-        setLayout( new BorderLayout( 10, 10 ) ); // Set frame layout
-        
-        // Initialize panels and widgets
-        desktop = new JDesktopPane();
-        
-        mainBar = new JMenuBar();
-        setJMenuBar( mainBar );
-        
-        fileMenu = new JMenu( "File" );
-        editMenu = new JMenu( "Edit" );
-        viewMenu = new JMenu( "View" );
-        
-        drawTest = new JInternalFrame( "Paint", true, true, true, true );
-        drawTest.setSize( 400, 400 );
-        drawTest.setVisible( true );
-        
-        toolbar = new JToolBar( "Options" );
-        report = new JButton( "Report Bugs" );
-        
-        // Add widgets to panels
-        drawTest.add( new DrawPanel( new JLabel( "(0, 0)") ) );
-        desktop.add( drawTest );
-        add( toolbar, BorderLayout.WEST );
-  
-        mainBar.add( fileMenu );
-        mainBar.add( editMenu );
-        mainBar.add( viewMenu );
-        
-        toolbar.add( report );
-        
-        // Add panels to main frame
-        add( desktop, BorderLayout.CENTER );
-        
-    }   
-
-} // end class DesktopDemo
-        </pre>
-        
-        <p> The test class remains the same. </p>
-        
-        <div id = "Considerations"> <h2> Considerations </h2> </div>
-        <ul>
-            <li> <strong>JInternalFrame</strong>'s constructor takes up to four boolean arguments; resizable, closable, maximizable, and iconifiable (minimizable) in order. They default to <strong>false</strong>.
-            <li> You <strong>must</strong> call the <strong>setSize()</strong> and <strong>setVisible()</strong> methods of each <strong>JInternalFrame</strong> object in order to see it. </li>
-            <li> You cannot nest <strong>JFrame</strong>s (or <strong>JInternalFrame</strong>s), so you'll have to use <strong>JPanel</strong>s instead.
-            <li> Remember to consult the <a href = "http://docs.oracle.com/javase/8/docs/api/">Java API</a> for more information on each class.
-        </ul>
-        
-        <div id = "FAQs"> <h2> FAQs </h2> </div>
-        
-        <h3> Q: Can I nest JDesktopPanes? What does it look like? </h3>
-        <p> A: </p>
-        <img style = "width: 402px; height: 227px;" src = "http://i.imgur.com/rVBGGq7.png"></img>
-        <p> Bonus: See what a frame looks like when it's minimized! </p>
-        
-        <h3> Q: Shouldn't you be doing homework? </h3>
-        <p> A: Yeah. </p>
+        <div id = "Goose_Clicker"> <h2> Goose Clicker </h2></div>
+        <p> Coming soon.
        
         <div id = "Homework"> <h2> Homework </h2> </div>
-        <p> Study for MATH 135, MATH 137, CS 135, ECON 101 finals. </p>
+        <p> You probably realized you can type in anybody's name and find out who they have.</p>
+        <p>I could fix this but then you'd get a number or something and I'm not majoring in cryptography so just don't type anybody else's name in ok?</p>
+        
+    </body>
+    
+</html>
