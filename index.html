@@ -115,15 +115,17 @@
         <p>If something went wrong and nobody told me then don't expect me to lose sleep over it xd</p>
         </p>
         <form>
-            Your name (like, YOUR name):<br>
-            <input type="text" name="name"><br>
+            Your name (like, YOUR name): <br>
+            <input type="text" id="name"> <br>
         </form> 
+        
         <button onclick="displayName()">Enter</button>
         
-        <p id = "disgusting"> You are sending a gift to Their name here </p>
+        <p id = "rec"> You are sending a gift to Their name here </p>
         
+
         <iframe id="namesFile" src="names.txt" onload="loadNames();" style="display: none;"></iframe>
-        <iframe id="file" src="final.txt" onload="LoadFile();" style="display: none;"></iframe>
+        <iframe id="file" src="final.txt" onload="loadFinal();" style="display: none;"></iframe>
         
     <script>
             
@@ -146,18 +148,20 @@
             finalNames = strRawContents.split("\n");
         }
         
-            function displayName(name) {
-                if name in originalList {
-                    document.getElementById("disgusting").innerHTML = "You are sending a gift to " + finalNames[listOfNames.indexOf(name)];
+        
+            function displayName() {
+                var name = document.getElementById("name").value;
+                if (listOfNames.indexOf(name) !== -1) {
+                    document.getElementById("rec").innerHTML = "You are sending a gift to " + finalNames[listOfNames.indexOf(name)];
                 }
                 else {
-                    document.getElementById("disgusting").innerHTML = "Invalid entry, or I screwed up.";
+                    document.getElementById("rec").innerHTML = "Invalid entry, or I screwed up.";
                 }
             }
     </script>
         
         <div id = "Goose_Clicker"> <h2> Goose Clicker </h2></div>
-        <p> Coming soon.
+        <p> Coming soon. </p>
        
         <div id = "Homework"> <h2> Homework </h2> </div>
         <p> You probably realized you can type in anybody's name and find out who they have.</p>
