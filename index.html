@@ -121,50 +121,73 @@
         
         <button onclick="displayName()">Enter</button>
         
-        <p id = "rec"> You are sending a gift to Their name here </p>
-        
+        <p id = "rec"> You are sending a gift to ... </p>
 
-        <iframe id="namesFile" src="names.txt" onload="loadNames();" style="display: none;"></iframe>
-        <iframe id="file" src="final.txt" onload="loadFinal();" style="display: none;"></iframe>
-        
     <script>
             
         var listOfNames = [];
         var finalNames = [];
-            
+        
         function loadNames() {
-            var oFrame = document.getElementById("namesFile");
-            var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
-            while (strRawContents.indexOf("\r") >= 0)
-            strRawContents = strRawContents.replace("\r", "");
-            listOfNames = strRawContents.split("\n");
-            }
-            
+  	    var xmlhttp;
+  	    if (window.XMLHttpRequest) {
+    		xmlhttp = new XMLHttpRequest();
+  	    } 
+	    else {
+    		// code for older browsers
+    		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  	    }
+	    xmlhttp.onreadystatechange = function() {
+    	    	if (this.readyState == 4 && this.status == 200) {
+      		    listOfNames = this.responseText.trim().split(" ");
+        	}
+  	    };
+  	    xmlhttp.open("GET", "https://raw.githubusercontent.com/alvernchen/alvernchen.github.io/master/names.txt", true);
+  	    xmlhttp.send();
+	}
+
         function loadFinal() {
-            var oFrame = document.getElementById("finalFile");
-            var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
-            while (strRawContents.indexOf("\r") >= 0)
-            strRawContents = strRawContents.replace("\r", "");
-            finalNames = strRawContents.split("\n");
+  	    var xmlhttp;
+  	    if (window.XMLHttpRequest) {
+    		xmlhttp = new XMLHttpRequest();
+  	    } else {
+    		// code for older browsers
+    		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  	    }
+  	    xmlhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+      		finalNames = this.responseText.trim().split(" ");
+    		}
+  	    };
+  	    xmlhttp.open("GET", "https://raw.githubusercontent.com/alvernchen/alvernchen.github.io/master/final.txt", true);
+  	    xmlhttp.send();
+	}
+        
+        function displayName() {
+            var name = document.getElementById("name").value;
+            if (listOfNames.indexOf(name) !== -1) {
+                document.getElementById("rec").innerHTML = "You are sending a gift to " + finalNames[listOfNames.indexOf(name)];
+                }
+            else {
+                document.getElementById("rec").innerHTML = "Invalid entry, or I screwed up.";
+                }
+            }
+        
+        function main() {
+        	loadNames();
+            loadFinal();
         }
         
+        window.onload = main();
         
-            function displayName() {
-                var name = document.getElementById("name").value;
-                if (listOfNames.indexOf(name) !== -1) {
-                    document.getElementById("rec").innerHTML = "You are sending a gift to " + finalNames[listOfNames.indexOf(name)];
-                }
-                else {
-                    document.getElementById("rec").innerHTML = "Invalid entry, or I screwed up.";
-                }
-            }
     </script>
         
         <div id = "Goose_Clicker"> <h2> Goose Clicker </h2></div>
         <p> Coming soon. </p>
        
         <div id = "Homework"> <h2> Homework </h2> </div>
-        <p> Please only enter your name, cause that's a pretty big problem with this system I guess. </p>
+        <p> You probably realized you can type in anybody's name and find out who they have.</p>
+        <p>I could fix this but then you'd get a number or something and I'm not majoring in cryptography so just don't type anybody else's name in ok?</p>
         
     </body>
     
