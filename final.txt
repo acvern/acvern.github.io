@@ -1,7 +1,7 @@
-Bob
-Eugene
-Frank
-George
 Dog
-Cheng
 Art
+George
+Eugene
+Bob
+Cheng
+Frank
