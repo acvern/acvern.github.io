@@ -5,126 +5,128 @@
 <html>
     <head>
         <meta property="og:image" content="http://i.imgur.com/6M6cGB7.png" />
-	<link rel="icon" type="favicon/ico" href="https://www.blogger.com/favicon-image.g?blogID=8180955075875423877">
-    </head>
-
-    <style>
-        
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        
-        a {
-            text-decoration: none;
-        }
-
-        body {
-            //background-color: #427ea3;
-			background-color: #f2f2f2;
-            font-family: "Tahoma", sans-serif, Geneva, sans-serif;
-			font-family: "Helvetica", sans-serif, Arial, sans-serif;
-            //color: #25465b;
-			color: #404040;
+		<link rel="icon" type="favicon/ico" href="https://www.blogger.com/favicon-image.g?blogID=8180955075875423877">
+		
+		<style>
 			
-        }
+			html {
+				position: relative;
+				min-height: 100%;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+
+			body {
+				//background-color: #427ea3;
+				background-color: #f2f2f2;
+				font-family: "Tahoma", sans-serif, Geneva, sans-serif;
+				font-family: "Helvetica", sans-serif, Arial, sans-serif;
+				//color: #25465b;
+				color: #404040;
+				
+			}
+			
+			hr {
+				//color: #25465b;
+				color: #a8a8a8;
+				width = 80%;
+			}
+
+			ol {
+				line-height: 1.5em;
+			}
+			
+			p {
+				line-height: 1.5em;
+			}
+			
+			.container {
+				margin-top: 10px;
+				margin-left: 225px;
+				margin-bottom: 30px;
+				background-color: #ffffff;
+				padding: 20px;
+				padding-top: 5px;
+			}
+
+			.contentBar {
+				width: 160px;
+				height: 360px;
+				position: fixed;
+				//background-color: #ffffff;
+				//padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 20px;
+				padding-bottom: 10px;
+				left: 0px;
+				top: 15px;
+			}
+			
+			.contentHeader {
+				width: 120px;
+				height: 24px;
+				font-size: 16px;
+				letter-spacing: 0.5px;
+				background-color: #641e09;
+				color: #ffffff;
+				text-align: center;
+				//cursor: pointer;
+				display: flex;
+				justify-content: left;
+				padding: 10px;
+				padding-left: 20px;
+				padding-right: 20px;
+				align-items: center;
+				cursor: pointer;
+			}
+			
+			.contentHeader:hover, .contentHeader:focus {
+				background-color: #8c2b0d;
+			}
+			
+			.footer {
+				position: fixed;
+				//color: #25465b;
+				color: #a8a8a8;
+				left: 15px;
+				bottom: 0;
+				width: 200px;
+				font-size: 10px;
+				text-align: center;
+			}
+
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+			
+			.dropdown a:hover {
+				background-color: #b3b3b3;
+			}
+
+			.projectList {
+				display: none;
+				position: absolute;
+				background-color: #404040;
+				color: #ffffff;
+				min-width: 120%;
+				overflow: auto;
+			}
+
+			.projectList a {
+				padding: 12px 16px;
+				text-decoration: none;
+				color: #ffffff;
+				display: block;
+			}
+
+		</style>
 		
-        hr {
-            //color: #25465b;
-			color: #a8a8a8;
-            width = 80%;
-        }
-
-        ol {
-            line-height: 1.5em;
-        }
-        
-        p {
-            line-height: 1.5em;
-        }
-		
-        .container {
-            margin-top: 10px;
-            margin-left: 225px;
-			margin-bottom: 30px;
-            background-color: #ffffff;
-            padding: 20px;
-            padding-top: 5px;
-        }
-
-        .contentBar {
-            width: 160px;
-            height: 360px;
-            position: fixed;
-            //background-color: #ffffff;
-            //padding-left: 20px;
-			padding-right: 20px;
-            padding-top: 20px;
-            padding-bottom: 10px;
-            left: 0px;
-            top: 10px;
-        }
-		
-		.contentHeader {
-			width: 120px;
-			height: 24px;
-			font-size: 16px;
-			letter-spacing: 0.5px;
-			background-color: #641e09;
-			color: #ffffff;
-			text-align: center;
-			//cursor: pointer;
-			display: flex;
-			justify-content: left;
-			padding: 10px;
-			padding-left: 20px;
-			padding-right: 20px;
-			align-items: center;
-			cursor: pointer;
-		}
-		
-		.contentHeader:hover, .contentHeader:focus {
-			background-color: #8c2b0d;
-		}
-        
-        .footer {
-            position: fixed;
-            //color: #25465b;
-			color: #a8a8a8;
-            left: 15px;
-            bottom: 0;
-            width: 200px;
-            font-size: 10px;
-            text-align: center;
-        }
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-		
-		.dropdown a:hover {
-			background-color: #b3b3b3;
-		}
-
-		.projectList {
-			display: none;
-			position: absolute;
-			background-color: #404040;
-			color: #ffffff;
-			min-width: 120%;
-			overflow: auto;
-		}
-
-		.projectList a {
-			padding: 12px 16px;
-			text-decoration: none;
-			color: #ffffff;
-			display: block;
-		}
-
-    </style>
-    
+    </head>
+	
+	
     <body>
     
 		<title> Alvern's Homepage </title>
@@ -140,9 +142,11 @@
 			<br style = "line-height: 1.5em;">
 		
 			<div class = "dropdown">
-				<div id = "xd" class = "contentHeader" onclick = "showProjects()"> PROJECTS ▼ </div>
-				<div id= "projects" class="projectList">
-					<a href= "#Goose_Clicker">Goose Clicker</a>
+				<div id = "xd" class = "contentHeader" onclick = "showProjects()"> PROJECTS &#9660; </div>
+				<div id= "projects" class = "projectList">
+					<a href = "#Goose_Clicker">Goose Clicker</a>
+					<a href = "#youneedtocode">@youneedtocode</a>
+					<a href = "#Breathe">Breathe</a>
 				</div>
 			</div>
 			<br>
@@ -155,21 +159,46 @@
 
 			<div id = "top"> <h1> Alvern's Homepage </h1> </div>
 			
-			<hr></hr>
+			<hr>
 			
 			<div id = "About"> <h2> About </h2> </div>
-			<br style = "line-height: 6em;">
+			<p> I'm a first year computer science student at the University of Waterloo. </p>
+			<p> I've been writing for almost two years (best decision of my life), playing guitar for just over a year, and
+				learning for as long as I can remember. </p>
+			
+			<br style = "line-height: 4.5em;">
+			
 			<div id = "Projects"> <h2> Projects </h2> </div>
 			
 			<div id = "Goose_Clicker"> <h3> Goose Clicker </h3> </div>
+			<p> Goose Clicker is an incremental game in the style of <a href = "http://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a>
+				designed around the theme of Canada geese and other Canadian cultural icons. </p>
 			<p> Goose Clicker v0.1 is live! Check it out <a href = "http://alvernchen.github.io/gooseclicker/"> here. </a> </p>
+			<p> Future plans: Implement save functions, upgrades for buildings, and visuals. </p>
 			
-			<br style = "line-height: 6em;">
+			<br style = "line-height: 1.5em;">
+			
+			<div id = "youneedtocode"> <h3> @youneedtocode </h3> </div>
+			<p> <a href = "https://twitter.com/youneedtocode"> @youneedtocode </a> is a Twitter bot created using
+				<a href = "http://www.zachwhalen.net/posts/how-to-make-a-twitter-bot-with-google-spreadsheets-version-04/"> Zach Whalen's </a>
+				engine in Google Spreadsheets. It tweets to me (<a href = "https://twitter.com/alvernchen">@alvernchen</a>) every four hours
+				to remind me to live life to the fullest.
+			</p>
+			<p> Future plans: Develop my own code for tweeting from a spreadsheet, with the ability to construct tweets by cell as well as tweet
+				an entire cell and nothing else at random. </p>
+			
+			<br style = "line-height: 1.5em;">
+			
+			<div id = "Breathe"> <h3> Breathe </h3> </div>
+			<p> Breathe is an incremental game in progress, with the objective of bringing mental health issues and the importance of 
+				self-expression to light. </p>
+			
+			<br style = "line-height: 4.5em;">
 			
 			<div id = "Contact"> <h2> Contact </h2> </div>
-			<p> Twitter: </p>
-			<p> Blog: </p>
-			<p> YouTube channel: </p>
+			<p> Personal e-mail: <a href = "mailto:alvernchen@gmail.com?Subject=Website%20Inquiry"> alvernchen@gmail.com </a> </p>
+			<p> Twitter: <a href = "https://twitter.com/alvernchen"> @alvernchen </a> </p>
+			<p> Wordpress: <a href = "https://alvernchen.wordpress.com"> Live From My Desk </a> </p>
 			
 			<!--
 			<p> Secret Santa stuff should be right below here, under the big text that says </p>
@@ -197,15 +226,30 @@
 		// Function to show the project list when clicked
 		function showProjects() {
 			document.getElementById("projects").style.display = "block";
-			console.log(1);
 		}
 
 		//Function that closes the project list when user clicks away
 		window.onclick = function(e) {
-		  if (!e.target.matches(".contentHeader")) {
-			document.getElementById("projects").style.display = "none";
-		  }
+			if (!e.target.matches(".contentHeader")) {
+				document.getElementById("projects").style.display = "none";
+			}
 		}
-</script>
+		
+		// Polyfill to support older browsers
+		if (!Element.prototype.matches) {
+		Element.prototype.matches = 
+			Element.prototype.matchesSelector || 
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector || 
+			Element.prototype.oMatchesSelector || 
+			Element.prototype.webkitMatchesSelector ||
+			function(s) {
+				var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+				i = matches.length;
+				while (--i >= 0 && matches.item(i) !== this) {}
+				return i > -1;            
+			};
+		}
+	</script>
     
 </html>
