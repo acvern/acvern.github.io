@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <meta property="og:image" content="http://i.imgur.com/6M6cGB7.png" />
+        <!-- <meta property="og:image" content="http://i.imgur.com/6M6cGB7.png" /> !-->
 		<link rel="icon" type="favicon/ico" href="https://www.blogger.com/favicon-image.g?blogID=8180955075875423877">
 		
 		<style>
@@ -136,8 +136,6 @@
 		</div>
     
 		<div class = "contentBar">
-			<!-- <img src = "http://i.imgur.com/6M6cGB7.png" width="180" height = "159"></img>
-			<h3> Contents </h3> !-->
 			<a href = "#About"> <div class = "contentHeader"> ABOUT </div> </a>
 			<br style = "line-height: 1.5em;">
 		
@@ -146,7 +144,7 @@
 				<div id= "projects" class = "projectList">
 					<a href = "#Goose_Clicker">Goose Clicker</a>
 					<a href = "#youneedtocode">@youneedtocode</a>
-					<a href = "#Breathe">Breathe</a>
+					<!-- <a href = "#Breathe">Breathe</a> !-->
 				</div>
 			</div>
 			<br>
@@ -157,22 +155,29 @@
 
 		<div class = "container">
 
-			<div id = "top"> <h1> Alvern's Homepage </h1> </div>
+			<div id = "top"> <h1> Alvern Chen </h1> </div>
 			
 			<hr>
 			
+			<h5> Developer, writer, and musician. </h5>
+			
+			<br>
+			
 			<div id = "About"> <h2> About </h2> </div>
 			<p> I'm a first year computer science student at the University of Waterloo. </p>
-			<p> I've been writing for almost two years (best decision of my life), playing guitar for just over a year, and
-				learning for as long as I can remember. </p>
+			<p> I'm currently taking a psychology course along with my degree requirements in hopes of pursuing a minor in 
+				Human-Computer Interaction. </p>
+			<p> Outside of school, I've been writing creative pieces and blog entries for almost two years (best decision of my life), 
+				playing guitar for just over a year, and learning for as long as I can remember. </p>
 			
 			<br style = "line-height: 4.5em;">
 			
 			<div id = "Projects"> <h2> Projects </h2> </div>
 			
 			<div id = "Goose_Clicker"> <h3> Goose Clicker </h3> </div>
-			<p> Goose Clicker is an incremental game in the style of <a href = "http://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a>
-				designed around the theme of Canada geese and other Canadian cultural icons. </p>
+			<p> Goose Clicker is an incremental game written in JavaScript, inspired by
+				<a href = "http://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> and designed around the theme of Canada geese and other 
+				Canadian cultural icons. </p>
 			<p> Goose Clicker v0.1 is live! Check it out <a href = "http://alvernchen.github.io/gooseclicker/"> here. </a> </p>
 			<p> Future plans: Implement save functions, upgrades for buildings, and visuals. </p>
 			
@@ -187,11 +192,13 @@
 			<p> Future plans: Develop my own code for tweeting from a spreadsheet, with the ability to construct tweets by cell as well as tweet
 				an entire cell and nothing else at random. </p>
 			
+			<!--
 			<br style = "line-height: 1.5em;">
+			
 			
 			<div id = "Breathe"> <h3> Breathe </h3> </div>
 			<p> Breathe is an incremental game in progress, with the objective of bringing mental health issues and the importance of 
-				self-expression to light. </p>
+				self-expression to light. </p> !-->
 			
 			<br style = "line-height: 4.5em;">
 			
@@ -228,14 +235,14 @@
 			document.getElementById("projects").style.display = "block";
 		}
 
-		//Function that closes the project list when user clicks away
+		// Function that closes the project list when user clicks away
 		window.onclick = function(e) {
 			if (!e.target.matches(".contentHeader")) {
 				document.getElementById("projects").style.display = "none";
 			}
 		}
 		
-		// Polyfill to support older browsers
+		// Polyfill to support older browsers, found at https://developer.mozilla.org/en/docs/Web/API/Element/matches
 		if (!Element.prototype.matches) {
 		Element.prototype.matches = 
 			Element.prototype.matchesSelector || 
