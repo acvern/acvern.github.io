@@ -1,3 +1,10 @@
+/*
+Secret Santa front-end
+Last modified November 29, 2016
+Currently "dormant", no matching HTML on main page
+TODO: set up Secret Santa in a few months
+*/
+
 var listOfNames = [];
 var finalNames = [];
         
