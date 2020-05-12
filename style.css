@@ -10,11 +10,13 @@ a {
 body {
     /* background-color: #427ea3; */
     background-color: #f2f2f2;
-    font-family: "Tahoma", sans-serif, Geneva, sans-serif;
-    font-family: "Helvetica", sans-serif, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     /* color: #25465b; */
     color: #404040;
-    
+}
+
+h1, h2, h3 {
+    font-family: "Helvetica", sans-serif, Arial, sans-serif;
 }
 
 hr {
