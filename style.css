@@ -33,9 +33,7 @@ p {
 }
 
 .container {
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 30px;
+    margin: 20px;
     background-color: #ffffff;
     padding: 20px;
     padding-top: 5px;
